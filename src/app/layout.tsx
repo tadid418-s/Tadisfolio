@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Tadiyos Dejene Portfolio",
     images: [
       {
-        url: "images/og-image.png",
+        url: "images/og-new.png",
         width: 1200,
         height: 630,
         alt: "Tadiyos Dejene Portfolio",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Tadiyos Dejene | Full-Stack Developer",
     description:
       "A passionate full-stack developer with expertise in React.js and mobile app development.",
-    images: ["images/og-image.png"],
+    images: ["images/og-new.png"],
   },
 };
 
