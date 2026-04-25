@@ -2,44 +2,37 @@
 import { Card } from "@/components/Card";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/SectionHeader";
-import Georgie from "@/assets/images/Georgie.jpg";
-import BL3ED from "@/assets/images/BL3ED.jpg";
-import Onur from "@/assets/images/Onur.jpg";
-import JohnTC from "@/assets/images/JohnTC.webp";
-import Naveen from "@/assets/images/Naveen.webp";
+import jerry from "@/assets/images/jerry.avif";
+import mauro from "@/assets/images/mauro.jpeg";
+import samuel from "@/assets/images/samuel.avif";
+import umar from "@/assets/images/umar.jpeg";
 import Image from "next/image";
 import { Fragment } from "react";
 
 const testimonials = [
   {
-    name: "Georgie Boy",
-    position: "Founder @TheAlienBoyNFT",
-    text: "Ankit's the GOAT! Dude took our project from 'meh' to 'mind-blowing' in no time. Clean code, crazy ideas, and execution that’s always on point. Can’t wait to work with him again!",
-    avatar: Georgie,
+    name: "Jerry",
+    position: "Product Designer @FinTech Innovations",
+    text: "Tadiyos brought our figma designs to life flawlessly! His attention to detail in front-end architecture and UI/UX ensured that our users got the slick, responsive experience we envisioned.",
+    avatar: jerry,
   },
   {
-    name: "BL3ED",
-    position: "Marketing Lead @Meraki_Web3",
-    text: "Yo, Ankit’s a total beast at what he does! Took our Web3 game to heights we didn’t even know existed. Smooth execution, next-level ideas, and vibes that just hit different. 🔥",
-    avatar: BL3ED,
+    name: "Mauro",
+    position: "Founder @SaaS Connect",
+    text: "Working with Tadiyos was incredible. He optimized our entire core front-end, making the web app lightning-fast and visually stunning. Highly recommend him for any serious UI development.",
+    avatar: mauro,
   },
   {
-    name: "Onur",
-    position: "Software Developer ",
-    text: "In a short period of time, Ankit was able to recover our database and fix critical issues. His expertise and efficiency are impressive. We’re grateful for his support.",
-    avatar: Onur,
+    name: "Samuel",
+    position: "Marketing Director @E-Comm Stars",
+    text: "Tadiyos's ability to create engaging, dynamic front-end layouts is unmatched. He revamped our landing pages perfectly and helped increase our user engagement significantly. Top-tier work!",
+    avatar: samuel,
   },
   {
-    name: "JohnTC",
-    position: "Crypto Trader",
-    text: "Ankit was able to clone our exact Figma design in no time. His speed and precision are unmatched. We were impressed with how efficiently he handled the task.",
-    avatar: JohnTC,
-  },
-  {
-    name: "Naveen Choudhary",
-    position: "Tech Manager @Elite Esports",
-    text: "Ankit did an excellent job deploying our web app on AWS. He made sure everything ran smoothly and efficiently, getting us up and running faster than expected.",
-    avatar: Naveen,
+    name: "Umar",
+    position: "Lead Developer @Tech Pioneers",
+    text: "Tadiyos is a highly skilled front-end developer. His React components are clean, scalable, and beautifully structured. It’s always a pleasure reviewing his robust, optimized code.",
+    avatar: umar,
   },
 ];
 

@@ -36,16 +36,14 @@ export const Header = () => {
     { href: "/", label: "Home" },
     { href: "/#about", label: "About" },
     { href: "/#project", label: "Projects" },
-    { href: "/blogs", label: "Blogs" },
     { href: "/#contact", label: "Contact" },
   ];
 
   // Determine initial active index based on current path/hash
   let initialIndex = 0;
-  if (pathname === "/blogs") initialIndex = 3;
-  else if (activeHash === "#about") initialIndex = 1;
+  if (activeHash === "#about") initialIndex = 1;
   else if (activeHash === "#project") initialIndex = 2;
-  else if (activeHash === "#contact") initialIndex = 4;
+  else if (activeHash === "#contact") initialIndex = 3;
 
   const handleItemClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
     if (href.startsWith("/#") || href.startsWith("#")) {

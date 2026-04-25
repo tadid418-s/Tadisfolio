@@ -1,6 +1,6 @@
-# Ankitfolio 🌟
+# Tadiyosfolio 🌟
 
-**Ankitfolio** is a modern and responsive portfolio website built using **Next.js**, designed to showcase projects, skills, and experiences with smooth animations and a professional look. This project leverages tools like **React Three Fiber**, **Aceternity UI**, **TailwindCSS**, and **Framer Motion** to create an interactive and visually appealing experience.
+**Tadiyosfolio** is a modern and responsive portfolio website built using **Next.js**, designed to showcase projects, skills, and experiences with smooth animations and a professional look. This project leverages tools like **React Three Fiber**, **Aceternity UI**, **TailwindCSS**, and **Framer Motion** to create an interactive and visually appealing experience.
 
 ---
 

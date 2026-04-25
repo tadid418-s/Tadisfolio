@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
           userAgent: '*',
           allow: '/',
         },
-        sitemap: 'http://ankit-nayak.vercel.app/sitemap.xml',
+        sitemap: 'https://tadiyos-dejene.vercel.app/sitemap.xml',
       };
 }

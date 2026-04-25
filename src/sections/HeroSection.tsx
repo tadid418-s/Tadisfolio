@@ -1,53 +1,73 @@
 "use client";
-import { motion } from "framer-motion";
-import avatar from "@/assets/images/avatar.gif";
-import Image from "next/image";
-import { FaArrowDown } from "react-icons/fa";
-import { HeroOrbit } from "@/components/HeroOrbit";
-import { FaReact } from "react-icons/fa";
-import { FaJs } from "react-icons/fa";
-import { RiNextjsLine } from "react-icons/ri";
-import { FaHtml5 } from "react-icons/fa";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { FaNode } from "react-icons/fa";
-import { SiMongodb } from "react-icons/si";
-import { FaLinux } from "react-icons/fa";
-import { FlipWords } from "@/components/flip-words";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { FaArrowDown, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
+import { SiTypescript, SiNextdotjs, SiMongodb } from "react-icons/si";
 import { footerLinks } from "./Footer";
 import { useState } from "react";
 import LightRays from "@/components/LightRays";
+import { FlipWords } from "@/components/flip-words";
+
+const words = ["Frontend Expert.", "Full-Stack Dev.", "UI/UX Enthusiast.", "Critical Thinker.", "Tech-Savvy."];
+
+const techIcons = [
+  { icon: <FaReact className="text-cyan-400" />, label: "React" },
+  { icon: <SiNextdotjs className="text-white" />, label: "Next.js" },
+  { icon: <SiTypescript className="text-blue-400" />, label: "TypeScript" },
+  { icon: <FaNodeJs className="text-green-400" />, label: "Node.js" },
+  { icon: <SiMongodb className="text-emerald-400" />, label: "MongoDB" },
+  { icon: <FaGitAlt className="text-orange-400" />, label: "Git" },
+];
+
+/** Magnetic tilt card for the top-right interactive panel */
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotX = useTransform(y, [-60, 60], [8, -8]);
+  const rotY = useTransform(x, [-60, 60], [-8, 8]);
+  const springX = useSpring(rotX, { stiffness: 200, damping: 20 });
+  const springY = useSpring(rotY, { stiffness: 200, damping: 20 });
+
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set(e.clientX - rect.left - rect.width / 2);
+    y.set(e.clientY - rect.top - rect.height / 2);
+  };
+  const handleLeave = () => { x.set(0); y.set(0); };
+
+  return (
+    <motion.div
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      style={{ rotateX: springX, rotateY: springY, transformStyle: "preserve-3d" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export const HeroSection = () => {
-  const words = [
-    "Web3 Enthusiast.",
-    "Full-Stack Dev.",
-    "Digital Artist.",
-    "Technophile.",
-    "Tech-Savvy.",
-  ];
-  const [buttonText, setButtonText] = useState("Let's Connect");
+  const [buttonText, setButtonText] = useState("Copy Email");
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("ankitkumarnayak1234@gmail.com").then(() => {
-      setButtonText("Email Copied!");
-      setTimeout(() => {
-        setButtonText("Let's Connect");
-      }, 1000);
+    navigator.clipboard.writeText("tadiyosdejene@gmail.com").then(() => {
+      setButtonText("Copied ✓");
+      setTimeout(() => setButtonText("Copy Email"), 1500);
     });
   };
 
   const handleScrollToAbout = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative overflow-x-clip" id="home">
-      <div className="absolute inset-0 top-0 left-0 w-full h-[800px] z-0">
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <LightRays
           raysOrigin="top-center"
           raysColor="#ffffff"
@@ -58,151 +78,270 @@ export const HeroSection = () => {
           mouseInfluence={0.1}
           noiseAmount={0}
           distortion={0}
-          className="custom-rays opacity-90"
+          className="custom-rays opacity-50"
           pulsating={false}
           fadeDistance={1}
           saturation={1}
         />
+        <div className="absolute w-[600px] h-[250px] rounded-full bg-violet-800/15 blur-[130px] top-0 left-1/2 -translate-x-1/2" />
       </div>
 
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_50%,transparent)] lg:mt-32 z-0 pointer-events-none">
-        <div className="size-[700px] hero-ring"></div>
-        <div className="size-[900px] hero-ring"></div>
-        <div className="size-[1100px] hero-ring"></div>
-        <div className="size-[1300px] hero-ring"></div>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={45}>
-          <FaReact className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={90}>
-          <RiNextjsLine className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={135}>
-          <FaJs className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={180}>
-          <FaHtml5 className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={225}>
-          <RiTailwindCssFill className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={270}>
-          <FaNode className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={315}>
-          <SiMongodb className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={630} orbitDuration="32s" rotation={360}>
-          <FaLinux className=" size-16" />
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={45}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={90}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={135}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={180}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={225}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={270}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={315}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-        <HeroOrbit size={720} orbitDuration="52s" rotation={360}>
-          <div className="size-3 rounded-full bg-gray-400"></div>
-        </HeroOrbit>
-      </div>
-      <div className="container relative z-10">
-        <div className="flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0, rotate: -45 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10, duration: 0.5 }}
-            className="border border-white overflow-hidden rounded-full w-24"
-            style={{ willChange: 'transform, opacity' }}
+      {/* ── INTERACTIVE: Top-right — 3D Tech Stack card ── */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.0, duration: 0.6, type: "spring" }}
+        className="absolute top-24 right-6 md:right-12 z-20 hidden md:block"
+        style={{ perspective: "600px" }}
+      >
+        <TiltCard className="cursor-pointer">
+          <div
+            className="rounded-xl p-4 w-44"
+            style={{
+              background: "linear-gradient(145deg, rgba(30,32,40,0.9), rgba(18,20,26,0.95))",
+              border: "1px solid rgba(255,255,255,0.08)",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
+              backdropFilter: "blur(16px)",
+            }}
           >
-            <Image src={avatar} className="size-max" alt="avatar" unoptimized priority={false} />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: -50, scale: 0.5 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
-            className="bg-black border border-black px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4"
-            style={{ willChange: 'transform, opacity' }}
-          >
-            <div className="bg-green-500 size-2.5 rounded-full relative">
-              <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
+            <p className="text-[10px] font-mono text-white/30 uppercase tracking-widest mb-3">Stack</p>
+            <div className="grid grid-cols-3 gap-3">
+              {techIcons.map(({ icon, label }) => (
+                <motion.div
+                  key={label}
+                  onHoverStart={() => setHoveredTech(label)}
+                  onHoverEnd={() => setHoveredTech(null)}
+                  whileHover={{ scale: 1.3, y: -3 }}
+                  className="flex flex-col items-center gap-1 cursor-default"
+                >
+                  <span className="text-xl">{icon}</span>
+                  {hoveredTech === label && (
+                    <motion.span
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-[8px] text-white/50 font-mono"
+                    >
+                      {label}
+                    </motion.span>
+                  )}
+                </motion.div>
+              ))}
             </div>
-            <div className="text-sm font-medium">
-              Available For New Projects
-            </div>
-          </motion.div>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
-          className="max-w-2xl mx-auto"
-          style={{ willChange: 'transform, opacity' }}
-        >
-          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide leading-loose">
-            Hi, I’m Ankit 👋
-            <br />
-            I’m a<FlipWords words={words} className="text-white" />
-          </h1>
-          <p className="mt-4 text-center text-white/60 md:text-lg">
-            Full-Stack Developer skilled in Next.js, MERN stack, and React
-            Native. Exploring Web3, NFTs, and digital arts. Currently learning
-            Spring Boot!
-          </p>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.6 }}
-          className="flex flex-col items-center justify-center"
-          style={{ willChange: 'transform, opacity' }}
-        >
-          <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-            <button
-              onClick={handleScrollToAbout}
-              className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:translate-y-2 transition duration-300"
-            >
-              <span className="font-semibold">Explore My Work</span>
-              <FaArrowDown />
-            </button>
-            <button
-              onClick={handleCopy}
-              className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/70 hover:text-gray-900"
-            >
-              <span>👋</span>
-              <span className="font-semibold">{buttonText}</span>
-            </button>
           </div>
-          <nav className="flex flex-row items-center gap-8 mt-6">
-            {footerLinks.map((link, index) => (
-              <motion.a
-                whileHover={{ scale: 1.5 }}
-                whileTap={{ scale: 0.9 }}
-                href={link.href}
-                key={index}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 transition-transform duration-300 ease-in-out"
-              >
-                <span>{link.icon}</span>
-              </motion.a>
-            ))}
-          </nav>
+        </TiltCard>
+      </motion.div>
+
+      {/* ── INTERACTIVE: Bottom-left — Live clock / status terminal ── */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.1, duration: 0.6, type: "spring" }}
+        className="absolute bottom-24 left-6 md:left-12 z-20 hidden md:block"
+      >
+        <TerminalCard />
+      </motion.div>
+
+      {/* ── CENTER CONTENT ── */}
+      <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-4 pt-20 pb-6 text-center">
+
+        {/* Available badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-6"
+        >
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium"
+            style={{
+              background: "rgba(35,134,54,0.15)",
+              border: "1px solid rgba(35,134,54,0.4)",
+              color: "#3fb950",
+            }}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute h-full w-full rounded-full bg-[#3fb950] opacity-60" />
+              <span className="relative h-2 w-2 rounded-full bg-[#3fb950] flex" />
+            </span>
+            Available for new projects
+          </div>
         </motion.div>
+
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-[11px] uppercase tracking-[0.35em] text-white/30 font-mono mb-6"
+        >
+          Full-Stack Developer · Based in Ethiopia
+        </motion.p>
+
+        {/* ── NAME — Playfair Display italic, centered, ~50% reduced ── */}
+        <div className="overflow-hidden my-4">
+          <motion.h1
+            initial={{ y: "105%" }}
+            animate={{ y: "0%" }}
+            transition={{ type: "spring", stiffness: 70, damping: 16, delay: 0.3 }}
+            className="text-[clamp(2.6rem,6vw,5.5rem)] font-black italic leading-tight tracking-tight text-white"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
+            Tadiyos Dejene
+          </motion.h1>
+        </div>
+
+        {/* Role flipper */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.52, duration: 0.5 }}
+          className="mt-4 text-base md:text-xl text-white/45 font-medium"
+          style={{ fontFamily: "var(--font-geist), sans-serif" }}
+        >
+          I&apos;m a <FlipWords words={words} className="text-white/85 font-semibold" />
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.64, duration: 0.5 }}
+          className="mt-5 text-white/38 text-sm md:text-base leading-relaxed max-w-md"
+        >
+          Building fast, accessible, and visually refined web experiences —
+          from pixel-perfect frontends to robust full-stack systems.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.78, duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-center gap-3 mt-8"
+        >
+          <button
+            onClick={handleScrollToAbout}
+            className="group inline-flex items-center gap-2 px-5 py-2 rounded-md text-sm font-semibold text-white transition-all duration-200"
+            style={{
+              background: "linear-gradient(180deg, #238636 0%, #1a7f37 100%)",
+              border: "1px solid rgba(240,246,252,0.1)",
+              boxShadow: "0 0 0 1px rgba(46,164,79,0.4), inset 0 1px 0 rgba(255,255,255,0.08)",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(180deg, #2ea043 0%, #238636 100%)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "linear-gradient(180deg, #238636 0%, #1a7f37 100%)")}
+          >
+            <span>View My Work</span>
+            <FaArrowDown className="text-xs group-hover:translate-y-0.5 transition-transform duration-200" />
+          </button>
+
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-md text-sm font-semibold text-white/80 transition-all duration-200"
+            style={{
+              background: "linear-gradient(180deg, #21262d 0%, #161b22 100%)",
+              border: "1px solid rgba(240,246,252,0.1)",
+              boxShadow: "0 0 0 1px rgba(110,118,129,0.4), inset 0 1px 0 rgba(255,255,255,0.04)",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(180deg, #30363d 0%, #21262d 100%)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "linear-gradient(180deg, #21262d 0%, #161b22 100%)")}
+          >
+            <span>✉️</span>
+            <span>{buttonText}</span>
+          </button>
+        </motion.div>
+
+        {/* Socials */}
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.92, duration: 0.5 }}
+          className="flex items-center gap-5 mt-7"
+        >
+          {footerLinks.map((link, i) => (
+            <motion.a
+              key={i}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="text-white/30 hover:text-white/70 transition-colors duration-200"
+            >
+              {link.icon}
+            </motion.a>
+          ))}
+        </motion.nav>
       </div>
-    </div >
+
+      {/* Scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.5 }}
+        className="relative z-10 flex flex-col items-center pb-6 gap-1.5"
+      >
+        <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/20">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+        >
+          <FaArrowDown className="text-white/20 text-xs" />
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
+
+/** Animated terminal card for bottom-left */
+function TerminalCard() {
+  const lines = [
+    { text: "> status", delay: 0, color: "text-white/60" },
+    { text: "  ✓ open to work", delay: 0.4, color: "text-emerald-400" },
+    { text: "> location", delay: 0.9, color: "text-white/60" },
+    { text: "  Addis Ababa, ET", delay: 1.3, color: "text-cyan-400" },
+    { text: "> focus", delay: 1.8, color: "text-white/60" },
+    { text: "  Frontend + Backend", delay: 2.2, color: "text-violet-400" },
+  ];
+
+  return (
+    <div
+      className="rounded-xl p-4 w-52"
+      style={{
+        background: "linear-gradient(145deg, rgba(22,27,34,0.95), rgba(13,17,23,0.98))",
+        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)",
+        backdropFilter: "blur(16px)",
+      }}
+    >
+      {/* Terminal top bar */}
+      <div className="flex items-center gap-1.5 mb-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+        <span className="ml-2 text-[9px] font-mono text-white/20">tadiyos.sh</span>
+      </div>
+      {/* Lines */}
+      <div className="flex flex-col gap-0.5">
+        {lines.map((line, i) => (
+          <motion.p
+            key={i}
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: line.delay, duration: 0.3 }}
+            className={`text-[11px] font-mono ${line.color}`}
+          >
+            {line.text}
+          </motion.p>
+        ))}
+        {/* Blinking cursor */}
+        <motion.span
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ repeat: Infinity, duration: 1, ease: "steps(1)" }}
+          className="text-[11px] font-mono text-white/40 mt-0.5"
+        >
+          _
+        </motion.span>
+      </div>
+    </div>
+  );
+}

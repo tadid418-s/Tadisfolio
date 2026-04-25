@@ -38,7 +38,7 @@ export function CallToAction() {
       baseColor: [0.3, 0.3, 0.3],
       markerColor: [0, 1, 0],
       glowColor: [1, 1, 1],
-      markers: [{ location: [20.5937, 78.9629], size: 0.1 }],
+      markers: [{ location: [9.0227, 38.7460], size: 0.1 }],
       onRender: (state: any) => {
         if (!isVisible) return;
         
@@ -58,7 +58,7 @@ export function CallToAction() {
   const [buttonText, setButtonText] = useState("Let's Connect");
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("ankitkumarnayak1234@gmail.com").then(() => {
+    navigator.clipboard.writeText("tadiyosdejene@gmail.com").then(() => {
       setButtonText("Email Copied!");
       setTimeout(() => setButtonText("Let's Connect"), 1000);
     });

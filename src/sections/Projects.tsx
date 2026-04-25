@@ -1,8 +1,7 @@
-import frens from "@/assets/images/frens.png";
-import nextShare from "@/assets/images/nextShare.png";
-import aura from "@/assets/images/aura.png";
+import inventoryos from "@/assets/images/inventoryos.png";
+import rideethiopia from "@/assets/images/rideethiopia.png";
+import roamlytravels from "@/assets/images/roamlytravels.png";
 import llama from "@/assets/images/llama.png";
-import xclone from "@/assets/images/xclone.png";
 import Image from "next/image";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -12,91 +11,60 @@ import { Card } from "@/components/Card";
 const portfolioProjects = [
   {
     company: "Personal Project",
-    year: "2025",
-    title: "X Clone – Twitter (X) Full Stack Clone",
+    year: "2024",
+    title: "InventoryOS - Inventory Management System",
     results: [
       {
-        title:
-          "Built X Clone using Next.js 15, React Redux, Spring Boot 3.4.2, and JWT auth.",
+        title: "Designed and implemented the core front-end user interfaces.",
       },
       {
-        title:
-          "Supports tweet posting, threads, profiles, follow system, media uploads, and personalized feeds.",
+        title: "Built interactive reporting charts and a sleek inventory dashboard.",
       },
       {
-        title:
-          "Designed secure REST APIs with Spring Security and MySQL (Aiven).",
+        title: "Ensured a deeply responsive and optimized cross-device user experience.",
       },
     ],
-    link: "https://x-clone-web-app.vercel.app/",
+    link: "https://inventory-os.vercel.app/",
     option: "Visit Live WebApp",
-    image: xclone,
+    image: inventoryos,
   },
   {
     company: "Personal Project",
     year: "2024",
-    title: "Frens - AI Powered Chat Mobile App",
+    title: "Ride - Ethiopian Equivalent for Uber",
     results: [
       {
-        title:
-          "Developed a real-time chat application using React Native and Firebase.",
+        title: "Developed an engaging and professional front-end for the ride-sharing platform.",
       },
       {
-        title:
-          "Integrated my self built Llama AI API for AI-powered chatbot interactions.",
+        title: "Implemented clean UI components and map-integrated visual layouts.",
       },
       {
-        title:
-          "Implemented secure user authentication and media sharing with Firebase.",
+        title: "Focused on mobile-first front-end methodology and modern web capabilities.",
       },
     ],
-    link: "https://github.com/AnkitNayak-eth/Frens-AI-Powered-Chat-Mobile-Application",
-    option: "Visit Repo",
-    image: frens,
-  },
-  {
-    company: "Personal Project",
-    year: "2024",
-    title: "NextShare - File Sharing Webapp",
-    results: [
-      {
-        title:
-          "Integrated Cloudinary for file storage and MongoDB for upload logs.",
-      },
-      {
-        title:
-          "Implemented URL shortening and QR code generation for easy sharing.",
-      },
-      {
-        title:
-          "Enabled file uploads up to 100MB with automatic expiration within 24 hours.",
-      },
-    ],
-    link: "https://next-shareit.vercel.app",
+    link: "https://ride-chi.vercel.app/",
     option: "Visit Live WebApp",
-    image: nextShare,
+    image: rideethiopia,
   },
   {
     company: "Personal Project",
     year: "2024",
-    title: "Aura - Wallpaper Mobile App",
+    title: "Roamly Travels - Travel Agent Portal",
     results: [
       {
-        title:
-          "Developed a sleek wallpaper app using React Native powered by the Pixabay API.",
+        title: "Contributed to front-end architecture, building vibrant, engaging views.",
       },
       {
-        title:
-          "Implemented high-quality wallpaper exploration, search, and seamless download features.",
+        title: "Created booking forms, sleek destination display cards, and visual elements.",
       },
       {
-        title:
-          "Built a visually appealing image grid for improved wallpaper browsing.",
+        title: "Produced high-quality UI/UX with smooth transitions and sophisticated styling.",
       },
     ],
-    link: "https://github.com/AnkitNayak-eth/Aura-wallpaper-app",
-    option: "Visit Repo",
-    image: aura,
+    link: "https://roamly-travels.vercel.app/",
+    option: "Visit Live WebApp",
+    image: roamlytravels,
   },
   {
     company: "Personal Project",

@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 export const footerLinks = [
   {
     icon: <FaLinkedin className="h-6 w-6 " />,
-    href: "https://www.linkedin.com/in/ankitnayaketh/",
+    href: "https://www.linkedin.com/in/tadiyosdejene/",
   },
   {
     icon: <FaTwitter className="h-6 w-6 " />,
-    href: "https://x.com/AnkitNayak_eth",
+    href: "https://x.com/TadiyosDejene",
   },
   {
     icon: <FaGithub className="h-6 w-6 " />,
-    href: "https://github.com/AnkitNayak-eth",
+    href: "https://github.com/TadiyosDejene",
   },
 ];
 

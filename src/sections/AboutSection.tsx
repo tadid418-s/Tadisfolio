@@ -136,7 +136,7 @@ export const AboutSection = () => {
             >
               <Card className="h-[320px] p-0 relative">
                 <PinContainer
-                  title="I live in India"
+                  title="I live in Addis Ababa, Ethiopia"
                   className="h-[320px] w-[620px] md:w-[280px] lg:w-[320px] mb-8"
                 >
                   <Image
@@ -181,7 +181,7 @@ export const AboutSection = () => {
             {/* Bottom Button */}
             <div className="absolute bottom-6 w-full flex justify-center pb-2 z-20 pointer-events-none">
               <button
-                onClick={() => window.open("/updatedMyCV.pdf", "_blank")}
+                onClick={() => window.open("/TADIYOS_DEJENE_FlowCV_Resume_2026-04-22.pdf", "_blank")}
                 className="pointer-events-auto relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 shadow-2xl"
               >
                 <span
