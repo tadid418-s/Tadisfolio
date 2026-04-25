@@ -25,6 +25,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tadiyos-dejene.vercel.app"),
   title: "Tadiyos Dejene | Full-Stack Developer",
   description:
     "A passionate full-stack developer specializing in React.js, MERN stack, and mobile app development with React Native. Let’s build the future together!",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Tadiyos Dejene Portfolio",
     images: [
       {
-        url: "images/og-new.png",
+        url: "https://tadiyos-dejene.vercel.app/images/og-new.png",
         width: 1200,
         height: 630,
         alt: "Tadiyos Dejene Portfolio",
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
     title: "Tadiyos Dejene | Full-Stack Developer",
     description:
       "A passionate full-stack developer with expertise in React.js and mobile app development.",
-    images: ["images/og-new.png"],
+    images: ["https://tadiyos-dejene.vercel.app/images/og-new.png"],
   },
 };
 
