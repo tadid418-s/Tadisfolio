@@ -11,27 +11,27 @@ import { Fragment } from "react";
 
 const testimonials = [
   {
-    name: "Jerry",
-    position: "Product Designer @FinTech Innovations",
-    text: "Tadiyos brought our figma designs to life flawlessly! His attention to detail in front-end architecture and UI/UX ensured that our users got the slick, responsive experience we envisioned.",
+    name: "John Doe",
+    position: "Product Designer @ Company",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
     avatar: jerry,
   },
   {
-    name: "Mauro",
-    position: "Founder @SaaS Connect",
-    text: "Working with Tadiyos was incredible. He optimized our entire core front-end, making the web app lightning-fast and visually stunning. Highly recommend him for any serious UI development.",
+    name: "John Doe",
+    position: "Founder & CEO @ Startup",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.",
     avatar: mauro,
   },
   {
-    name: "Samuel",
-    position: "Marketing Director @E-Comm Stars",
-    text: "Tadiyos's ability to create engaging, dynamic front-end layouts is unmatched. He revamped our landing pages perfectly and helped increase our user engagement significantly. Top-tier work!",
+    name: "John Doe",
+    position: "Marketing Director @ Enterprise",
+    text: "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris integer in mauris viverra.",
     avatar: samuel,
   },
   {
-    name: "Umar",
-    position: "Lead Developer @Tech Pioneers",
-    text: "Tadiyos is a highly skilled front-end developer. His React components are clean, scalable, and beautifully structured. It’s always a pleasure reviewing his robust, optimized code.",
+    name: "John Doe",
+    position: "Lead Developer @ TechCorp",
+    text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.",
     avatar: umar,
   },
 ];
@@ -64,9 +64,9 @@ export const TestimonialsSection = () => {
           <div className="flex gap-8 pr-8 flex-none animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
             {[...new Array(2)].fill(0).map((_, idx) => (
               <Fragment key={idx}>
-                {testimonials.map((testimonial) => (
+                {testimonials.map((testimonial, testimonialIndex) => (
                   <Card
-                    key={testimonial.name}
+                    key={`${idx}-${testimonialIndex}`}
                     className="flex gap-4 max-w-xs md:max-w-md p-6 md:p-8 hover:-rotate-3 transition duration-300"
                   >
                     <div className="size-14 bg-gray-700 items-center justify-center inline-flex rounded-full flex-shrink-0">
