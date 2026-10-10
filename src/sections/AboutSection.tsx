@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import cv from "@/assets/images/cv.png";
+import cv from "@/assets/images/cv_1.png";
 import Image from "next/image";
 import { FaReact, FaJs, FaHtml5, FaNode } from "react-icons/fa";
 import { RiNextjsLine, RiTailwindCssFill } from "react-icons/ri";
@@ -181,7 +181,7 @@ export const AboutSection = () => {
             {/* Bottom Button */}
             <div className="absolute bottom-6 w-full flex justify-center pb-2 z-20 pointer-events-none">
               <button
-                onClick={() => window.open("/TADIYOS_DEJENE_FlowCV_Resume_2026-04-22.pdf", "_blank")}
+                onClick={() => window.open("/Resume_Tadiyos_Dejene.pdf", "_blank")}
                 className="pointer-events-auto relative inline-flex h-12 overflow-hidden rounded-full p-[3px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 shadow-2xl"
               >
                 <span
