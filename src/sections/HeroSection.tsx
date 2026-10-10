@@ -7,7 +7,7 @@ import { useState } from "react";
 import LightRays from "@/components/LightRays";
 import { FlipWords } from "@/components/flip-words";
 
-const words = ["Frontend Expert.", "Full-Stack Dev.", "UI/UX Enthusiast.", "Critical Thinker.", "Tech-Savvy."];
+const words = ["Frontend Expert.", "UI/UX Developer.", "React & Next.js.", "Critical Thinker.", "Tech-Savvy."];
 
 const techIcons = [
   { icon: <FaReact className="text-cyan-400" />, label: "React" },
@@ -174,7 +174,7 @@ export const HeroSection = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-[11px] uppercase tracking-[0.35em] text-white/30 font-mono mb-6"
         >
-          Full-Stack Developer · Based in Ethiopia
+          Frontend Developer · Based in Ethiopia
         </motion.p>
 
         {/* ── NAME — Playfair Display italic, centered, ~50% reduced ── */}
@@ -209,7 +209,7 @@ export const HeroSection = () => {
           className="mt-5 text-white/38 text-sm md:text-base leading-relaxed max-w-md"
         >
           Building fast, accessible, and visually refined web experiences —
-          from pixel-perfect frontends to robust full-stack systems.
+          crafting pixel-perfect, responsive user interfaces.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -300,7 +300,7 @@ function TerminalCard() {
     { text: "> location", delay: 0.9, color: "text-white/60" },
     { text: "  Addis Ababa, ET", delay: 1.3, color: "text-cyan-400" },
     { text: "> focus", delay: 1.8, color: "text-white/60" },
-    { text: "  Frontend + Backend", delay: 2.2, color: "text-violet-400" },
+    { text: "  Frontend Dev", delay: 2.2, color: "text-violet-400" },
   ];
 
   return (

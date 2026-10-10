@@ -13,7 +13,7 @@ export const footerLinks = [
   },
   {
     icon: <FaGithub className="h-6 w-6 " />,
-    href: "https://github.com/TadiyosDejene",
+    href: "https://github.com/tadid418-s",
   },
 ];
 
@@ -24,7 +24,7 @@ export const Footer = () => {
 
       <div className="container">
         <div className="border-t border-white/15 py-6 text-sm flex flex-row justify-between items-center gap-8">
-          <div className="text-white/100">&copy; 2025. All rights reserved.</div>
+          <div className="text-white/100">&copy; 2026. All rights reserved.</div>
 
           <nav className="flex flex-row items-center gap-8">
             {footerLinks.map((link, index) => (

@@ -26,13 +26,13 @@ const greatVibes = Great_Vibes({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tadiyos-dejene.vercel.app"),
-  title: "Tadiyos Dejene | Full-Stack Developer",
+  title: "Tadiyos Dejene | Frontend Developer",
   description:
-    "A passionate full-stack developer specializing in React.js, MERN stack, and mobile app development with React Native. Let’s build the future together!",
+    "A passionate frontend developer specializing in React.js, Next.js, and modern responsive web interfaces. Let’s build the future together!",
   openGraph: {
-    title: "Tadiyos Dejene | Full-Stack Developer",
+    title: "Tadiyos Dejene | Frontend Developer",
     description:
-      "A full-stack developer specializing in React.js, MERN stack, and mobile app development.",
+      "A frontend developer specializing in React.js, Next.js, and crafting exceptional web experiences.",
     url: "https://tadiyos-dejene.vercel.app",
     siteName: "Tadiyos Dejene Portfolio",
     images: [
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tadiyos Dejene | Full-Stack Developer",
+    title: "Tadiyos Dejene | Frontend Developer",
     description:
-      "A passionate full-stack developer with expertise in React.js and mobile app development.",
+      "A passionate frontend developer with expertise in React.js, Next.js, and UI engineering.",
     images: ["https://tadiyos-dejene.vercel.app/images/og-new.png"],
   },
 };
@@ -71,11 +71,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Tadiyos Dejene",
-              jobTitle: "Full-Stack Developer",
+              jobTitle: "Frontend Developer",
               url: "https://tadiyos-dejene.vercel.app/",
               sameAs: [
                 "https://linkedin.com/in/tadiyosdejene",
-                "https://github.com/TadiyosDejene",
+                "https://github.com/tadid418-s",
               ],
             }),
           }}
